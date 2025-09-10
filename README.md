@@ -10,13 +10,12 @@ To install and use `top-notch` manually you can follow these steps:
 ```
 make build
 sudo make install
-if top-notch; then
-    echo "An attached screen has a notch!"
-fi
 top-notch
-if [ $? -eq 2 ]; then
-    echo "No screen attached!"
-fi
+case $? in
+    0) echo "An attached screen has a notch!";;
+    1) echo "No attached screen has a notch!";;
+    2) echo "No screen attached!";;
+esac
 ```
 If you want to change the prefix that `top-notch` will be installed to, you can override `PREFIX` when running `make install` like this: `make PREFIX=/opt/homebrew install`, the default is `/usr/local`.
 

@@ -1,5 +1,7 @@
 # top-notch
 
+[![Swift](https://github.com/CamJN/top-notch/actions/workflows/swift.yml/badge.svg)](https://github.com/CamJN/top-notch/actions/workflows/swift.yml)
+
 `top-notch` is a command line utility for macOS 12+ to indicate if the mac it is run on has a notched screen attached.
 
 ## Debug Usage

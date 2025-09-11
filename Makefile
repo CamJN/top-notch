@@ -4,7 +4,7 @@ EXE_PATH:=$(shell swift build --configuration release --show-bin-path)
 .PHONY: build install run
 
 $(EXE_PATH)/top-notch:
-	swift build --configuration release
+	swift build $(OTHER_SWIFT_FLAGS) --configuration release
 
 build: $(EXE_PATH)/top-notch
 

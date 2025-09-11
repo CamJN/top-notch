@@ -1,17 +1,18 @@
 PREFIX ?= /usr/local
 EXE_PATH:=$(shell swift build --configuration release --show-bin-path)
+NAME:=top-notch
 
 .PHONY: build install run
 
-$(EXE_PATH)/top-notch:
+$(EXE_PATH)/$(NAME): Sources/main.swift
 	swift build $(OTHER_SWIFT_FLAGS) --configuration release
 
-build: $(EXE_PATH)/top-notch
+build: $(EXE_PATH)/$(NAME)
 
-$(PREFIX)/bin/top-notch: $(EXE_PATH)/top-notch
-	install -C -s -o root -g wheel "$(EXE_PATH)/top-notch" "$(PREFIX)/bin/top-notch"
+$(PREFIX)/bin/$(NAME): $(EXE_PATH)/$(NAME)
+	install -C -s -o root -g wheel "$(EXE_PATH)/$(NAME)" "$(PREFIX)/bin/$(NAME)"
 
-install: $(PREFIX)/bin/top-notch
+install: $(PREFIX)/bin/$(NAME)
 
-run: $(PREFIX)/bin/top-notch
-	top-notch
+run:
+	swift run
